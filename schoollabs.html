@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>School Labs | Colby</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">School Labs</a></h1>
+    <p class="highlight">A showcase of my hands-on work from school courses.</p>
+  </header>
+  <main>
+    <section class="lab-cards">
+      <div class="lab-card">
+        <h2>
+          IT-120 Security
+          <a href="https://catalog.sierracollege.edu/search/?P=IT%200120" target="_blank" class="class-link" title="View class description">
+            [Link]
+          </a>
+        </h2>
+        <ul>
+          <li><a href="schoollabs/security/It-120 Lab 1.pdf" target="_blank">Intro Lab</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 4.pdf" target="_blank">Hardware Inventories</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 5.pdf" target="_blank">User Inventory & Common webapp vulns</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 6.pdf" target="_blank">Website Scanning & Explotation Tools</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 7.pdf" target="_blank">Windows Inventory & logging</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 8.pdf" target="_blank">Utilizing Windows Benchmarks for Hardening</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 9.pdf" target="_blank">Linux Hardening & Scripts</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 11.pdf" target="_blank">Configuring agents & Fowarding logs to SIEM</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 12.pdf" target="_blank">User Management and Remote Connection</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 13.pdf" target="_blank">HIPPA & PCI DSS Compliance/Trend Micro Simulation</a></li>
+          <li><a href="schoollabs/security/IT-120 Lab 14.pdf" target="_blank">Hardware Inventories</a></li>
+          <li><a href="schoollabs/security/FINAL Security Report.pdf" target="_blank">Final Cyberchallenge Report</a></li>
+        </ul>
+      </div>
+      <div class="lab-card">
+        <h2>
+          IT-145 Pentest
+          <a href="https://catalog.sierracollege.edu/search/?P=IT%200145" target="_blank" class="class-link" title="View class description">
+            [Link]
+          </a>
+        </h2>
+        <ul>
+          <li><a href="schoollabs/Pentest/IT-140 Lab 2.pdf" target="_blank">Passive & Active information gathering</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 3.pdf" target="_blank">Conducting Passive Enumeratin</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 4.pdf" target="_blank">Testing Scans Noise with TCPdump</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 5.pdf" target="_blank">Fully Scanning and enumerating a network</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 6.pdf" target="_blank">Vulnerability scanners & wordlist creation</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 7.pdf" target="_blank">File tranfers & rev/bind shells</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 8.pdf" target="_blank">SSH tunneling | Proxychains & Firewall Testing</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 9.pdf" target="_blank">Vulnerability Research & msfvenom</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 10.pdf" target="_blank">WebApp exploitation & SQLmap</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 12.pdf" target="_blank">Windows & Linux scripts for Enumeration</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Lab 13.pdf" target="_blank">Reading and understing Pentesting Reports</a></li>
+          <li><a href="schoollabs/Pentest/IT-145 Final Report.pdf" target="_blank">FINAL Pentest Report "Capstone"</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p> DISCLAIMER:
+        If you notice some labs are "missing" or numbers were skipped, this is because I did not deem them worthy of being here.
+
+    </p>
+    <p>Contact: <a href="mailto:your@email.com">soon@email.com</a></p>
+    <p>Colby 2025</p>
+  </footer>
+  <!-- PDF Modal -->
+  <div id="pdf-modal" class="pdf-modal">
+    <span class="pdf-modal-close" id="pdf-modal-close">&times;</span>
+    <iframe id="pdf-frame" class="pdf-frame" src="" frameborder="0"></iframe>
+  </div>
+  <script>
+    // PDF modal logic
+    document.querySelectorAll('.lab-card a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.href.toLowerCase().endsWith('.pdf')) {
+          e.preventDefault();
+          document.getElementById('pdf-frame').src = this.href;
+          document.getElementById('pdf-modal').style.display = 'flex';
+        }
+        // Otherwise, let normal links (like class descriptions) work as usual
+      });
+    });
+    document.getElementById('pdf-modal-close').onclick = function() {
+      document.getElementById('pdf-modal').style.display = 'none';
+      document.getElementById('pdf-frame').src = '';
+    };
+    document.getElementById('pdf-modal').onclick = function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.getElementById('pdf-frame').src = '';
+      }
+    };
+  </script>
+</body>
+</html>
